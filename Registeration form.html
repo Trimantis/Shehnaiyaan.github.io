@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            background-size: cover;
+            background-position: center;
+            
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background-image: url(p1.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: 6s;
+            animation-name: animate;
+            animation-duration: 30s;
+            animation-direction: alternate-reverse;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            animation-timing-function: ease-in-out;
+            position: relative;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto; 
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input,
+        #idProof {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ad3d62;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #a0456f;
+        }
+
+        #passwordMismatch {
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes animate {
+            0% {
+                background-image: url(p1.jpg);
+            }
+            25% {
+                background-image: url(p2.jpeg);
+            }
+            50% {
+                background-image:url(p3.jpg);
+            }
+            75% {
+                background-image: url(p4.jpg);
+            }
+            100% {
+                background-image: url(p5.jpeg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form id="registrationForm" onsubmit="return validateForm()">
+                <h2> Registration form</h2>
+        
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+        
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" oninput="validatePassword()" required>
+                <p id="passwordMismatch"></p>
+        
+                <label for="idProof">ID Proof (Upload):</label>
+                <input type="file" id="idProof" name="idProof" accept=".jpg, .jpeg, .png, .pdf" required>
+        
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("registrationForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                if (validateForm()) {
+                    // If form validation is successful, redirect to the home page
+                    redirectToHomePage();
+                }
+            });
+        });
+    
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var mismatchMessage = document.getElementById("passwordMismatch");
+    
+            if (password !== confirmPassword) {
+                mismatchMessage.innerHTML = "Passwords do not match!";
+            } else {
+                mismatchMessage.innerHTML = "";
+            }
+        }
+    
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+    
+            // You can add additional validation logic here if needed
+    
+            // Display a success message
+            alert("Registered successfully!");
+    
+            return true;
+        }
+    
+        function redirectToHomePage() {
+            console.log("Redirecting to Home.html");
+            // Replace 'Home.html' with the actual URL of your home page
+            window.location.href = 'Home.html';
+        }
+    </script>
+</body>
+</html>

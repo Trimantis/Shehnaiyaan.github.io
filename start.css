@@ -1,0 +1,104 @@
+.slide {
+  width: 100vw;
+  height: 100vh;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 200vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+.one {
+  background-image: url(Background.png);
+  background-size: cover;
+}
+.two {
+  background-image: url(Background2.png);
+  background-size: cover;
+}
+
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+
+
+
+
+
+.moving-element {
+  position: absolute;
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  background: url('Palaquin.png') center/contain; /* Adjust the color as needed */
+  background-repeat: no-repeat;
+  top: 85%;
+  left: 65%;
+  transform: translateX(0) translateY(-50%);
+  transition: transform 0.3s ease-out;
+}
+
+.content {
+  padding: 20px;
+}
+
+.animation-box {
+  width: 75%;
+  height: 27.5rem;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.animation-container {
+  width: 1000rem;
+  height: 30rem;
+}
+
+@keyframes topFadeIn {
+  0% {
+    position: absolute;
+    top:2rem;
+    opacity: 0;
+  }
+
+
+  100% {
+    position: absolute;
+    top: 4rem;
+    opacity: 1;
+  }
+}
+.first-text {
+  font-size: 1.8rem;
+  position: absolute;
+  left: 2.5rem;
+  top: 3rem;
+  opacity: 0;
+  animation-name: topFadeIn;
+  animation-duration:   3s;
+  color: white;
+  animation-fill-mode:forwards ;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #fff0f3;
+  color: #800f2f;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-left: 80%;
+}
+
+.home-button:hover {
+  background-color: white;
+}

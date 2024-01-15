@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    background-color: #fff0f3;
+}
+
+/* Flexbox: Header */
+header {
+    position: fixed;
+    padding-bottom: 20px;
+    background-color: #800f2f;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 0;
+    z-index: 100;
+    margin: 0;
+}
+
+/* Flexbox: Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    text-align: right;
+    margin-right: 60px;
+}
+
+.navbar li {
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.space {
+    position: relative;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+/* Flexbox: Header Video */
+.header-video {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox: Text Overlay */
+.text-overlay {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.text-overlay p {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.text-overlay button {
+    background-color: #fff;
+    color: #800f2f;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-overlay button:hover {
+    background-color: #800f2f;
+    color: #fff;
+}
+
+/* Flexbox: Next Section */
+.next-section {
+    padding: 50px 20px;
+    background-color: #fff0f3;
+    text-align: center;
+    margin-top: -50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Flexbox: Service Section */
+.service-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.service-section h2 {
+    color: #800f2f;
+}
+
+.service-section p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.content-image-container {
+    background-color: #fff0f3;
+}
+
+/* Flexbox: Centered Box */
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -20px 20px 20px 20px; 
+}
+
+/* Flexbox: Content Image Box */
+.content-image-box {
+    border: 2px solid #800f2f;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Flexbox: Content Image Section */
+.content-image-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+/* Flexbox: Content Section */
+.content-section {
+    flex: 1;
+    padding: 20px;
+    max-width: 1000px;
+    margin-right: 20px;
+    margin-top: -80px;
+}
+
+.content-section h2 {
+    color: #800f2f;
+}
+
+.content-section p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.content-section ul {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.navbar a[href="Registeration form.html"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #ad3d62;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a[href="Registeration form.html"]:hover {
+    background-color: #f9d9d9;
+}
