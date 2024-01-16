@@ -1,13 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Welcome</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="start.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      overflow-y:hidden;
+      overflow-x:hidden ;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 200vw;
+      height: 100vh;
+      transform: rotate(90deg) translateY(-100vh);
+      transform-origin: top left;
+    }
+    .one {
+      background-image: url(Background.png);
+      background-size: cover;
+      
+      
+    }
+    .two {
+      background-image: url(Background2.png);
+      background-size:cover;
+      
+     
+    }
     
-  </head>
+    .outer-wrapper {
+      width: 100vh;
+      height: 100vw;
+      transform: rotate(-90deg) translateX(-100vh);
+      transform-origin: top left;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      position: absolute;
+    }
+    
+    .moving-element {
+      position: absolute;
+      width: 300px; /* Adjust the width as needed */
+      height: 300px; /* Adjust the height as needed */
+      background: url('Palaquin.png') center/contain; /* Adjust the color as needed */
+      background-repeat: no-repeat;
+      top: 85%;
+      left: 55%;
+      transform: translateX(0) translateY(-50%);
+      transition: transform 0.3s ease-out;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+    
+    .animation-box {
+      width: 75%;
+      height: 27.5rem;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .animation-container {
+      width: 1000rem;
+      height: 30rem;
+    }
+    
+    @keyframes topFadeIn {
+      0% {
+        position: absolute;
+        top:2rem;
+        opacity: 0;
+      }
+    
+    
+      100% {
+        position: absolute;
+        top: 4rem;
+        opacity: 1;
+      }
+    }
+    .first-text {
+      font-size: 1.8rem;
+      position: absolute;
+      left: 2.5rem;
+      top: 3rem;
+      opacity: 0;
+      animation-name: topFadeIn;
+      animation-duration:   3s;
+      color: white;
+      animation-fill-mode:forwards ;
+    }
+    
+    .home-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff0f3;
+      color: #800f2f;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 5%;
+      margin-left: 70%;
+    }
+    
+    .home-button:hover {
+      background-color: white;
+    }
+    
+  </style>
+</head>
 <body>
   <div class="outer-wrapper">
     <div class="wrapper">
@@ -23,9 +136,22 @@
   </div>
   <div class="moving-element"></div>
   <!-- Bootstrap JavaScript and dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <script src="start.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const movingElement = document.querySelector('.moving-element');
+    
+      window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
+        const newPosition = scrollPosition * 0.5; // Adjust the multiplier for the desired speed
+    
+        movingElement.style.transform = `translateX(${newPosition}px) translateY(-50%)`;
+        
+      });
+    });
+    
+    
+  </script>
 </body>
 </html>
