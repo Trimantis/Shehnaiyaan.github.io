@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" type="text/css" href="ProjectsGallery.css">
+    <style>
+
+
+       .overlay p {
+        padding: 30px; 
+    }
+
+        header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .navbar li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 100vw;
+            overflow: hidden; 
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; 
+            transition: transform 0.3s ease; 
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); 
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 10px; 
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .navigation-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .navigation-icons button {
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <img src="logo.jpg" width="280" height="110" align="left">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="EventPlanners.html">Event Planners</a></li>
+                <li><a href="ClientStories.html">Client Stories</a></li>
+                <li><a href="ProjectsGallery.html">Projects Gallery</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Registeration form.html">REGISTER NOW</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <div class="gallery-container" id="galleryContainer">
+        <div class="gallery-item">
+            <img src="pg1.jpeg" alt="Wedding Photo 1">
+            <div class="overlay">
+                <p>In this captivating image of an Indian marriage, a radiant young girl stands adorned in resplendent traditional attire, embodying the timeless grace and cultural richness of an Indian wedding. The vibrant hues of her intricately designed bridal ensemble mirror the celebration of love and unity. Ornate jewelry, including intricate necklaces and ornamental henna patterns on her hands, symbolize the sacred and ornamental aspects of the ceremony. The traditional backdrop, perhaps an adorned mandap or ceremonial setting, showcases the blend of heritage and modernity in the auspicious union. The atmosphere is alive with the essence of joy, tradition, and the promise of a beautiful journey ahead for the bride.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="pg2.jpg" alt="Wedding Photo 2">
+            <div class="overlay">
+                <p>In this heartwarming image, cultural boundaries dissolve as a foreigner embraces the richness of Indian tradition in marrying a local bride. The diverse union is beautifully symbolized by the couple's attire – the groom in a fusion of traditional Indian and Western garments, and the bride resplendent in her elaborate Indian bridal attire. The ceremony unfolds amidst vibrant colors, adorned with intricate rituals that bridge two worlds. The image captures not only the union of two individuals but also the coming together of different cultures, creating a visual testament to the beauty of love that transcends borders. The smiles on the faces of the couple and the amalgamation of diverse elements make this a poignant snapshot of unity in diversity.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="pg3.jpg" alt="Wedding Photo 3">
+            <div class="overlay">
+                <p>In this enchanting image, pure joy radiates from the beaming face of a blissful bride as she experiences a shower of vibrant flowers on her wedding day. Her eyes sparkle with excitement, and a contagious smile graces her lips, capturing the essence of sheer happiness in the midst of matrimonial celebrations. The cascade of flowers, falling gracefully around her, symbolizes blessings, love, and the auspicious beginning of a new chapter in her life. The vivid colors of the blooms complement the rich hues of her bridal attire, creating a visually captivating scene that embodies the beauty and exuberance of a traditional Indian wedding. This photograph is a snapshot of unbridled happiness and the poetic union of cultural traditions and personal joy.</p>
+            </div>
+        </div>
+
+   <div class="gallery-item">
+            <img src="pg4.jpg" alt="Wedding Photo 3">
+            <div class="overlay">
+                <p>In this delightful image, the joy of camaraderie and celebration comes to life as a radiant bride and her lively bridesmaids capture a moment of shared happiness through a spirited selfie. Posed together in a harmonious blend of elegance and playfulness, the bride and her attendants showcase the camaraderie that accompanies the journey to matrimony. Their smiles radiate genuine excitement, reflecting the warmth of friendship and the anticipation of the upcoming wedding festivities. The composition captures the modern essence of weddings, where cherished moments are shared and immortalized through the lens of camaraderie, creating a beautiful and lasting memory of the special bond between the bride and her supportive bridesmaids.</p>
+            </div>
+        </div>
+
+
+   <div class="gallery-item">
+            <img src="pg5.jpg" alt="Wedding Photo 3">
+            <div class="overlay">
+                <p>In this enchanting image, pure elation lights up the face of a radiant bride as she stands on the threshold of a beautiful moment. With a beaming smile and eyes sparkling with joy, she holds a garland (varmala) in her hands, poised to exchange it with her groom. The anticipation of this traditional ritual is palpable, as the bride is immersed in the happiness of the impending union. Her happiness is infectious, and the picture captures the essence of the sacred and joyous occasion. The vibrancy of the bride's emotions, coupled with the richness of cultural tradition, paints a heartwarming scene that reflects the profound love and excitement that mark the beginning of their marital journey.</p>
+            </div>
+        </div>
+
+
+   <div class="gallery-item">
+            <img src="pg6.jpg" alt="Wedding Photo 3">
+            <div class="overlay">
+                <p>The bride, resplendent in a Kanjeevaram silk saree and adorned with gold jewelry, exchanges garlands with the groom amidst the vibrant setting of a traditional ceremony. The scene radiates cultural richness, featuring the rhythmic beats of classical music and the recitation of sacred mantras. The image encapsulates the harmonious blend of age-old customs, vibrant colors, and the sacred bond of marriage, showcasing the unique traditions that make Tamil weddings a captivating celebration.</p>
+            </div>
+        </div>
+
+<footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Shehnaiyaan. All rights reserved.</p>
+            <p>Contact us: shehnaiyaan@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function updateGalleryTransform() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            const translateXValue = `-${currentIndex * (100 / 3)}%`;
+            galleryContainer.style.transform = `translateX(${translateXValue})`;
+        }
+    </script>
+</body>
+</html>

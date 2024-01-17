@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    background-color: #f4d9de;
+}
+
+header {
+    position: fixed;
+    padding-bottom: 20px;
+    background-color: #800f2f;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 0;
+    z-index: 100;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    text-align: right;
+    margin-right: 60px;
+    margin-bottom: 20px; 
+}
+
+
+.navbar li {
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f
+    overflow: hidden;
+}
+
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 150px;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+
+.gallery-item {
+    position: relative;
+    flex: 0 0 calc(25% - 10px);
+    margin: 10px; 
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
+}
+
+.gallery-item:hover img {
+    transform: scale(0.95); 
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;	
+}
+
+.gallery-item .overlay p {
+    color: #fff;
+    margin: 5px 0;
+}
+
+.navigation-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.navigation-icons button {
+    background: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navigation-icons button:first-child {
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #800f2f;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; 
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
