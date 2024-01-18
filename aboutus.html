@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Founders</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/wedding2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      scroll-behavior: smooth;
+      position: relative;
+      z-index: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-section {
+      width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-section h1,
+    .hero-section p {
+      color: #333;
+    }
+
+    .founders-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .founder {
+      position: relative;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .founder:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    .founder:nth-child(1) {
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/IMG_5966.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .founder:nth-child(2) {
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/sai1.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .founder:nth-child(3) {
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/nigam1.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .founder:nth-child(4) {
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/IMG_3063.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .founder:nth-child(5) {
+      background: url('C:/Users/Shubham/Downloads/FULLSTACK/chandana.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .founder p {
+      color: #fff;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .founder:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .modal-content {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .logo {
+      max-width: 150px;
+      margin-top: 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <img class="logo" src="C:\Users\Shubham\Downloads\FULLSTACK\logo.jpg" alt="Logo">
+    <h1>Meet Our Founders</h1>
+    <p>Discover the visionary minds behind our success</p>
+  </div>
+
+  <div class="founders-container">
+    <div class="founder" onclick="openModal('Shubham Kundu', 'C:\Users\Shubham\Downloads\FULLSTACK\IMG_3075.jpg')">
+      <p>Shubham Kundu</p>
+    </div>
+
+    <div class="founder" onclick="openModal('Sai Krishnan B', 'C:\Users\Shubham\Downloads\FULLSTACK\sai1.jpg')">
+      <p>Sai Krishnan B</p>
+    </div>
+
+    <div class="founder" onclick="openModal('Nigam Gowda', 'C:\Users\Shubham\Downloads\FULLSTACK\nigam1.jpg')">
+      <p>Nigam Gowda</p>
+    </div>
+
+    <div class="founder" onclick="openModal('Gayatri Nair', 'C:\Users\Shubham\Downloads\FULLSTACK\IMG_3063.jpg')">
+      <p>Gayatri Nair</p>
+    </div>
+
+    <div class="founder" onclick="openModal('Chandana K', 'C:\Users\Shubham\Downloads\FULLSTACK\chandana.jpg')">
+      <p>Chandana K</p>
+    </div>
+
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img src="" alt="Founder Image" id="modalImage">
+      <h2 id="modalTitle"></h2>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, imageSrc) {
+      document.getElementById('modalTitle').innerHTML = title;
+      document.getElementById('modalImage').src = imageSrc;
+      document.getElementById('myModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
