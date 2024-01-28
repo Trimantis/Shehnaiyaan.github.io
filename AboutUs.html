@@ -154,6 +154,13 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none; /* Make sure the canvas doesn't interfere with other elements */
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -188,8 +195,9 @@
     <div class="founder" onclick="openModal('Chandana K', 'chandana.jpg')">
       <p>Chandana K</p>
     </div>
-
   </div>
+
+  <canvas id="particles"></canvas>
 
   <div id="myModal" class="modal">
     <div class="modal-content">
@@ -200,6 +208,69 @@
   </div>
 
   <script>
+    // Particle Animation
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1,
+        color: 'rgba(204, 0, 102, 0.6)', // Dark pink color (adjust alpha value as needed)
+        speedX: Math.random() * 3 - 1.5,
+        speedY: Math.random() * 3 - 1.5
+      });
+    }
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      particles.forEach(particle => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+    
+        if (particle.radius > 0.2) {
+          particle.radius -= 0.1;
+        }
+    
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+      });
+    
+      spawnParticles();
+    }
+    
+    function spawnParticles() {
+      for (let i = 0; i < 2; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 3 + 1,
+          color: 'rgba(204, 0, 102, 0.6)', // Dark pink color (adjust alpha value as needed)
+          speedX: Math.random() * 3 - 1.5,
+          speedY: Math.random() * 3 - 1.5
+        });
+      }
+    
+      particles.forEach((particle, index) => {
+        if (particle.radius <= 0.2) {
+          particles.splice(index, 1);
+        }
+      });
+    }
+    
+    animate();
+
+    // Other functions
     function openModal(title, imageSrc) {
       document.getElementById('modalTitle').innerHTML = title;
       document.getElementById('modalImage').src = imageSrc;
@@ -209,6 +280,12 @@
     function closeModal() {
       document.getElementById('myModal').style.display = 'none';
     }
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
