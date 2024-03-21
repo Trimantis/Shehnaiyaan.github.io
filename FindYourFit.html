@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="garmentApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Garment Shop</title>
+  <style>
+    .filter-input {
+      margin-right: 10px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="GarmentController">
+  <div>
+    <select ng-model="selectedType" class="filter-input">
+      <option value="">Filter by Type</option>
+      <option value="Sherwani">Sherwani</option>
+      <option value="Lehenga">Lehenga</option>
+      <option value="Anarkali">Anarkali</option>
+      <option value="Kurta-Pajama">Kurta-Pajama</option>
+      <option value="Saree">Saree</option>
+    </select>
+    <input type="number" placeholder="Min Price" ng-model="minPrice" class="filter-input">
+    <input type="number" placeholder="Max Price" ng-model="maxPrice" class="filter-input">
+    <input type="number" placeholder="Min Rating" ng-model="minRating" step="0.1" class="filter-input">
+    <input type="number" placeholder="Max Rating" ng-model="maxRating" step="0.1" class="filter-input">
+    <select ng-model="selectedDesigner" class="filter-input">
+      <option value="">Filter by Designer</option>
+      <option value="Rajesh Kumar">Rajesh Kumar</option>
+      <option value="Sunita Verma">Sunita Verma</option>
+      <option value="Amit Gupta">Amit Gupta</option>
+      <option value="Deepika Sharma">Deepika Sharma</option>
+    </select>
+    <select ng-model="selectedLocation" class="filter-input">
+      <option value="">Filter by Location</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Jaipur">Jaipur</option>
+      <option value="Lucknow">Lucknow</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Kolkata">Kolkata</option>
+    </select>
+  </div>
+
+  <div ng-repeat="item in items | filter: customFilter">
+    <h3>{{ item.Name }}</h3>
+    <div class="item-info">
+      <p><strong>Type:</strong> {{ item.Type }}</p>
+      <p><strong>Price:</strong> {{ item.Price }}</p>
+      <p><strong>Rating:</strong> {{ item.Rating }}</p>
+      <p><strong>Designer:</strong> {{ item.Designer }}</p>
+      <p><strong>Location:</strong> {{ item.Location_Shop }}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var app = angular.module('garmentApp', []);
+
+  app.controller('GarmentController', function($scope) {
+    $scope.items = [
+      {
+        "Type": "Sherwani",
+        "Name": "Royal Sherwani Emporium",
+        "Colours_available": ["Gold", "Maroon", "Navy Blue", "Cream", "Black"],
+        "Location_Shop": "123 Maharaja Marg, Rajput Nagar, Delhi",
+        "Material": ["Silk", "Brocade", "Velvet", "Jamawar", "Jacquard"],
+        "Price": 1000,
+        "Rating": 4.5,
+        "Designer": "Rajesh Kumar"
+      },
+      {
+        "Type": "Lehenga",
+        "Name": "Regal Lehenga Palace",
+        "Colours_available": ["Red", "Pink", "Blue", "Green", "Orange"],
+        "Location_Shop": "456 Raja Bazaar, Jaipur",
+        "Material": ["Silk", "Georgette", "Chiffon", "Velvet", "Net"],
+        "Price": 1500,
+        "Rating": 4.7,
+        "Designer": "Sunita Verma"
+      },
+      {
+        "Type": "Anarkali",
+        "Name": "Elegant Anarkali Boutique",
+        "Colours_available": ["White", "Pastel Blue", "Peach", "Lavender", "Mint Green"],
+        "Location_Shop": "789 Nawabi Naka, Lucknow",
+        "Material": ["Chanderi", "Cotton", "Silk", "Net", "Velvet"],
+        "Price": 1200,
+        "Rating": 4.3,
+        "Designer": "Rajesh Kumar"
+      },
+      {
+        "Type": "Kurta-Pajama",
+        "Name": "Traditional Kurta Hub",
+        "Colours_available": ["White", "Beige", "Cream", "Light Blue", "Olive Green"],
+        "Location_Shop": "101 Ethnic Enclave, Hyderabad",
+        "Material": ["Cotton", "Silk", "Linen", "Khadi", "Brocade"],
+        "Price": 800,
+        "Rating": 4.5,
+        "Designer": "Amit Gupta"
+      },
+      {
+        "Type": "Saree",
+        "Name": "Saree Sutra",
+        "Colours_available": ["Red", "Green", "Blue", "Yellow", "Purple"],
+        "Location_Shop": "222 Sari Street, Kolkata",
+        "Material": ["Silk", "Cotton", "Georgette", "Chiffon", "Banarasi"],
+        "Price": 2000,
+        "Rating": 4.7,
+        "Designer": "Sunita Verma"
+      }
+    ];
+
+    $scope.customFilter = function(item) {
+      var typeMatch = !$scope.selectedType || item.Type === $scope.selectedType;
+      var priceMatch = (!$scope.minPrice || item.Price >= $scope.minPrice) &&
+                       (!$scope.maxPrice || item.Price <= $scope.maxPrice);
+      var ratingMatch = (!$scope.minRating || item.Rating >= $scope.minRating) &&
+                        (!$scope.maxRating || item.Rating <= $scope.maxRating);
+      var designerMatch = !$scope.selectedDesigner || item.Designer === $scope.selectedDesigner;
+      var locationMatch = !$scope.selectedLocation || item.Location_Shop.toLowerCase().includes($scope.selectedLocation.toLowerCase());
+
+      return typeMatch && priceMatch && ratingMatch && designerMatch && locationMatch;
+    };
+  });
+</script>
+
+</body>
+</html>
